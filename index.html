@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechieWebs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>        
+        :root {
+            --primary-sky-blue: #4fc3f7;
+            --dark-gray: #2c3e50;
+            --light-gray: #34495e;
+            --premium-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .text-gray { color: #6c757d; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: #000000 !important;
+            font-size: 1.5rem;
+        }
+        .nav-link {
+            color: #333333 !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #6c757d !important;
+        }
+        .hero-section {
+            background-color: #ffffff;
+            padding: 100px 0;
+        }
+        .hero-text {
+            color: #6c757d;
+            font-size: 1.5rem;
+            min-height: 2.5rem;
+            position: relative;
+        }
+        .typing-container {
+            display: inline-block;
+            position: relative;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .typing-container.active {
+            opacity: 1;
+        }
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.5rem;
+            background-color: #000000;
+            vertical-align: middle;
+            animation: blink 0.7s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .btn-primary {
+            background-color: #000000;
+            border-color: #000000;
+            padding: 10px 20px;
+            font-weight: 500;
+            margin: 10px 0;
+        }
+        .btn-primary:hover {
+            background-color: #333333;
+            border-color: #333333;
+        }
+        .btn-outline-primary {
+            border-color: #000000;
+            color: #000000;
+            padding: 10px 20px;
+            font-weight: 500;
+            margin: 10px 0;
+        }
+        .btn-outline-primary:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .contact-form {
+            max-width: 400px;
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-control {
+            border-color: #ced4da;
+            border-radius: 5px;
+        }
+        .form-control:focus {
+            border-color: #000000;
+            box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
+        }
+        .about-section {
+            background: linear-gradient(135deg, var(--dark-gray) 0%, #1a252f 100%);
+            color: #ecf0f1; /* Light text for contrast */
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(79, 195, 247, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .section-title {
+            color: var(--primary-sky-blue);
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+        }
+        .about-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(79, 195, 247, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: var(--premium-shadow);
+        }
+        .about-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-sky-blue);
+            box-shadow: 0 15px 40px rgba(79, 195, 247, 0.2);
+        }
+        .about-card h3 {
+            color: var(--primary-sky-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .about-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .about-card li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .about-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-sky-blue);
+            font-weight: bold;
+        }
+        .btn-sky-blue {
+            background: linear-gradient(135deg, var(--primary-sky-blue) 0%, #29b6f6 100%);
+            border: none;
+            color: #fff;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 195, 247, 0.4);
+        }
+        .btn-sky-blue:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 195, 247, 0.6);
+            color: #fff;
+        }
+        .welcome-text {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+        .card:hover { transform: translateY(-5px); transition: transform 0.3s ease; }
+
+        @media (max-width: 768px) {
+            .hero-text {
+                font-size: 1.2rem;
+            }
+            .btn-primary, .btn-outline-primary {
+                display: block;
+                width: 100%;
+            }
+            .contact-form {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">TechieWebs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" style="background-image: url('assets/images/hero-bg.webp'); background-size: cover; background-position: center; min-height: 400px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 text-center text-lg-start">
+                    <div class="hero-text">
+                        <span>We <span class="typing-container" data-text="build powerful web applications to grow your business."></span><span class="cursor"></span></span>
+                        <span>We <span class="typing-container" data-text="create custom web solutions to drive your success."></span><span class="cursor"></span></span>
+                        <span>We <span class="typing-container" data-text="turn your business needs into digital solutions."></span><span class="cursor"></span></span>
+                        <span>We <span class="typing-container" data-text="deliver innovative web tools to boost your efficiency."></span><span class="cursor"></span></span>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary d-block d-lg-inline-block">View Our Works</a>
+                        <a href="#" class="btn btn-outline-primary d-block d-lg-inline-block">Get a Quote</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-form">
+                        <h3>Get a Call</h3>
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" placeholder="Mobile" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Suitable Time" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Get a Call</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-us" class="about-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="welcome-text">
+                        <h1 class="display-5 section-title">About TechieWebs</h1>
+                        <p class="lead">A dynamic startup born in 2025 with a passion for crafting digital experiences that empower businesses to thrive in the fast-evolving online world. Founded by a team of innovative developers and tech enthusiasts, we specialize in building high-performance websites, scalable web applications, and robust APIs—all powered by the freedom and flexibility of open source technologies.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-card">
+                        <h3 class="section-title">Our Story</h3>
+                        <p>In a landscape dominated by proprietary solutions, we saw an opportunity to democratize development. Launched this year amid the surge of remote work and AI-driven innovation, TechieWebs was created to bridge the gap between complex tech needs and accessible, cost-effective solutions. We're not just coders; we're problem-solvers who believe that great software should be collaborative, transparent, and endlessly adaptable. Drawing from diverse backgrounds in software engineering, design, and entrepreneurship, our small but mighty team is driven by a shared vision: to accelerate your digital transformation without the hefty price tag or vendor lock-in.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <!-- What We Do -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="about-card">
+                                <h3 class="section-title">What We Do</h3>
+                                <p>At the heart of our services is a commitment to open source excellence. We leverage battle-tested frameworks like React, Node.js, Django, and PostgreSQL to deliver:</p>
+                                <ul>
+                                    <li><strong>Custom Websites:</strong> Sleek, responsive designs that captivate users and convert visitors into loyal customers.</li>
+                                    <li><strong>Web Applications:</strong> Intuitive, feature-rich platforms that streamline operations and scale with your growth.</li>
+                                    <li><strong>API Development:</strong> Secure, efficient integrations that connect your ecosystem seamlessly, from third-party services to mobile apps.</li>
+                                </ul>
+                                <p>By choosing open source, we ensure your projects are future-proof, community-supported, and fully yours—no black boxes, just pure potential.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Why Choose Us -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="about-card">
+                                <h3 class="section-title">Why Choose Us?</h3>
+                                <ul>
+                                    <li><strong>Innovation at Startup Speed:</strong> As a fresh face in the industry, we bring agile methodologies and cutting-edge trends to every project, iterating quickly to meet your deadlines.</li>
+                                    <li><strong>Transparency & Affordability:</strong> Open source means lower costs and full visibility into your code, fostering trust and long-term partnerships.</li>
+                                    <li><strong>Sustainability:</strong> We're committed to ethical tech practices, prioritizing security, accessibility, and eco-friendly hosting options.</li>
+                                    <li><strong>Proven Results:</strong> Even in our inaugural year, we've partnered with early adopters in e-commerce, fintech, and education to launch MVPs that drive real revenue.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="text-center mt-5">
+                        <p class="lead mb-4">We're more than a development firm—we're your strategic ally in the digital age. Ready to turn your ideas into impactful reality?</p>
+                        <a href="#contact" class="btn btn-sky-blue btn-lg">Contact Us Today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-solutions" class="py-5 bg-white">
+      <div class="container">
+        <h2 class="text-center mb-4 text-black">Our Solutions</h2>
+        <p class="text-center mb-5 lead text-gray">From dynamic e-commerce platforms to tailored CRM systems, our web applications empower businesses to thrive in the digital world. Explore our solutions below.</p>
+        
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <!-- E-Commerce Platforms -->
+      <div class="col">
+        <div class="card h-100 shadow-lg border-0" style="background-color: #f8f9fa;">
+          <img src="https://via.placeholder.com/400x200?text=E-Commerce+Storefront" class="card-img-top" alt="Mockup of a storefront with a shopping cart">
+          <div class="card-body">
+            <h5 class="card-title text-black">E-Commerce Platforms</h5>
+            <p class="card-text text-gray">Build robust online stores with seamless payment integration, intuitive product management, and responsive design to drive sales.</p>
+            <p class="card-text"><strong>Use Case:</strong> Retail, B2B, or subscription businesses.</p>
+            <p class="card-text"><strong>Highlights:</strong> Scalability, secure transactions, mobile optimization.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <a href="#" class="btn btn-primary w-100" style="background-color: #87CEEB; border-color: #87CEEB;">View Case Study</a>
+            <a href="#" class="btn btn-outline-primary w-100 mt-2" style="color: #87CEEB; border-color: #87CEEB;">Request a Demo</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- CRM Systems -->
+      <div class="col">
+        <div class="card h-100 shadow-lg border-0" style="background-color: #f8f9fa;">
+          <img src="https://via.placeholder.com/400x200?text=CRM+Dashboard" class="card-img-top" alt="Dashboard with charts, contact lists, or pipeline views">
+          <div class="card-body">
+            <h5 class="card-title text-black">Customer Relationship Management (CRM) Systems</h5>
+            <p class="card-text text-gray">Streamline customer interactions with custom CRMs tailored to your sales and support workflows.</p>
+            <p class="card-text"><strong>Use Case:</strong> Sales teams, marketing agencies, customer support.</p>
+            <p class="card-text"><strong>Highlights:</strong> Data integration, automation, user-friendly interfaces.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <a href="#" class="btn btn-primary w-100" style="background-color: #87CEEB; border-color: #87CEEB;">View Case Study</a>
+            <a href="#" class="btn btn-outline-primary w-100 mt-2" style="color: #87CEEB; border-color: #87CEEB;">Request a Demo</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- CMS -->
+      <div class="col">
+        <div class="card h-100 shadow-lg border-0" style="background-color: #f8f9fa;">
+          <img src="https://via.placeholder.com/400x200?text=CMS+Admin+Panel" class="card-img-top" alt="Admin panel or website editor interface">
+          <div class="card-body">
+            <h5 class="card-title text-black">Content Management Systems (CMS)</h5>
+            <p class="card-text text-gray">Empower your team to manage content effortlessly with flexible, scalable CMS solutions.</p>
+            <p class="card-text"><strong>Use Case:</strong> Blogs, corporate websites, portfolios.</p>
+            <p class="card-text"><strong>Highlights:</strong> Easy content updates, SEO optimization, multi-user support.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <a href="#" class="btn btn-primary w-100" style="background-color: #87CEEB; border-color: #87CEEB;">View Case Study</a>
+            <a href="#" class="btn btn-outline-primary w-100 mt-2" style="color: #87CEEB; border-color: #87CEEB;">Request a Demo</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Booking and Scheduling Apps -->
+      <div class="col">
+        <div class="card h-100 shadow-lg border-0" style="background-color: #f8f9fa;">
+          <img src="https://via.placeholder.com/400x200?text=Booking+Calendar" class="card-img-top" alt="Calendar interface or booking form">
+          <div class="card-body">
+            <h5 class="card-title text-black">Booking and Scheduling Apps</h5>
+            <p class="card-text text-gray">Simplify appointments and reservations with intuitive, automated scheduling solutions.</p>
+            <p class="card-text"><strong>Use Case:</strong> Salons, clinics, consultancies, event organizers.</p>
+            <p class="card-text"><strong>Highlights:</strong> Real-time availability, automated reminders, integration with calendars.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <a href="#" class="btn btn-primary w-100" style="background-color: #87CEEB; border-color: #87CEEB;">View Case Study</a>
+            <a href="#" class="btn btn-outline-primary w-100 mt-2" style="color: #87CEEB; border-color: #87CEEB;">Request a Demo</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Inventory Management Systems -->
+      <div class="col">
+        <div class="card h-100 shadow-lg border-0" style="background-color: #f8f9fa;">
+          <img src="https://via.placeholder.com/400x200?text=Inventory+Dashboard" class="card-img-top" alt="Inventory dashboard with stock levels or barcode scanning">
+          <div class="card-body">
+            <h5 class="card-title text-black">Inventory Management Systems</h5>
+            <p class="card-text text-gray">Optimize operations with powerful tools to track inventory, manage stock, and streamline logistics.</p>
+            <p class="card-text"><strong>Use Case:</strong> Retail, warehouses, manufacturing.</p>
+            <p class="card-text"><strong>Highlights:</strong> Real-time tracking, reporting, integration with e-commerce.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <a href="#" class="btn btn-primary w-100" style="background-color: #87CEEB; border-color: #87CEEB;">View Case Study</a>
+            <a href="#" class="btn btn-outline-primary w-100 mt-2" style="color: #87CEEB; border-color: #87CEEB;">Request a Demo</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Custom Web Applications -->
+      <div class="col">
+        <div class="card h-100 shadow-lg border-0" style="background-color: #f8f9fa;">
+          <img src="https://via.placeholder.com/400x200?text=Custom+App+Interface" class="card-img-top" alt="Custom app interface or workflow diagram">
+          <div class="card-body">
+            <h5 class="card-title text-black">Custom Web Applications</h5>
+            <p class="card-text text-gray">Transform your unique ideas into reality with bespoke web applications designed for your specific needs.</p>
+            <p class="card-text"><strong>Use Case:</strong> Niche industries, startups, specialized workflows.</p>
+            <p class="card-text"><strong>Highlights:</strong> Tailored functionality, scalability, ongoing support.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <a href="#" class="btn btn-primary w-100" style="background-color: #87CEEB; border-color: #87CEEB;">View Case Study</a>
+            <a href="#" class="btn btn-outline-primary w-100 mt-2" style="color: #87CEEB; border-color: #87CEEB;">Request a Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>  </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const $typingContainers = $('.typing-container');
+            const texts = $typingContainers.map(function() {
+                return $(this).data('text');
+            }).get();
+            let currentTextIndex = 0;
+
+            // Hide all taglines except the first one
+            $typingContainers.each(function(index) {
+                $(this).parent().css('display', index === 0 ? 'block' : 'none');
+                if (index === 0) $(this).addClass('active');
+            });
+
+            function typeText($container, text, callback) {
+                let charIndex = 0;
+                $container.text('');
+                const typingSpeed = 50;
+
+                function type() {
+                    if (charIndex < text.length) {
+                        $container.text($container.text() + text.charAt(charIndex));
+                        charIndex++;
+                        setTimeout(type, typingSpeed);
+                    } else {
+                        callback();
+                    }
+                }
+                type();
+            }
+
+            function showNextTagline() {
+                // Hide current tagline
+                const $currentContainer = $typingContainers.eq(currentTextIndex);
+                $currentContainer.removeClass('active');
+                $currentContainer.parent().css('display', 'none');
+
+                // Move to next tagline
+                currentTextIndex = (currentTextIndex + 1) % texts.length;
+                const $nextContainer = $typingContainers.eq(currentTextIndex);
+                $nextContainer.parent().css('display', 'block');
+                $nextContainer.addClass('active');
+
+                // Start typing animation
+                typeText($nextContainer, texts[currentTextIndex], function() {
+                    setTimeout(showNextTagline, 2000); // Delay before next tagline
+                });
+            }
+
+            // Start with the first tagline
+            typeText($typingContainers.eq(0), texts[0], function() {
+                setTimeout(showNextTagline, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
