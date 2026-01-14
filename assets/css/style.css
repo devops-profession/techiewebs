@@ -185,6 +185,9 @@ body {
     border-color: var(--primary-sky-blue);
     box-shadow: 0 15px 40px rgba(79, 195, 247, 0.2);
 }
+.about-card .card-body {
+    color: #ecf0f1;
+}
 .about-card h3 {
     color: var(--primary-sky-blue);
     font-weight: 600;
