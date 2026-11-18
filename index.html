@@ -1,462 +1,1730 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechieWebs</title>
-    <link rel="canonical" href="https://techiewebs.com/">
-    <script defer>
-        if (window.location.hostname.startsWith('www.')) {
-          window.location.replace('https://' + window.location.hostname.slice(4) + window.location.pathname);
-        }
-        if (window.location.pathname.endsWith('.html')) {
-          window.location.replace(window.location.pathname.slice(0, -5));
-        }
-    </script>
-    <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wiqx8fmm5q");
-    </script>
-    <meta name="description" content="" />
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="icon" href="./icon-192x192.png" sizes="192x192" type="image/png">
-    <link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./assets/css/style.css" rel="stylesheet">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="TechieWebs — Bangalore's open-source web development studio. Custom websites, web apps, e-commerce, CRM, CMS and API development."/>
+  <title>TechieWebs | Future-Ready Tech Solutions — Bangalore</title>
+  <link rel="canonical" href="https://techiewebs.com/">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="icon" href="./icon-192x192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180">
+  <script defer>
+    if (window.location.hostname.startsWith('www.')) {
+      window.location.replace('https://' + window.location.hostname.slice(4) + window.location.pathname);
+    }
+    if (window.location.pathname.endsWith('.html')) {
+      window.location.replace(window.location.pathname.slice(0, -5));
+    }
+  </script>
+  <script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wiqx8fmm5q");
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- AOS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+
+  <style>
+    /* ═══════════════════════════════════════════
+       TOKEN SYSTEM — TechieWebs Original Palette
+       Sky Blue + Dark Charcoal + Light backgrounds
+    ═══════════════════════════════════════════ */
+    :root {
+      /* Original brand tokens */
+      --primary-sky-blue: #4fc3f7;
+      --primary-dark:     #0099cc;
+      --primary-lite:     rgba(79,195,247,.12);
+      --dark-gray:        #2c3e50;
+      --light-gray:       #34495e;
+      --accent-green:     #0d9488;  /* deep teal secondary CTA */
+      --accent-cyan:      #00d4ff;
+
+      /* Backgrounds */
+      --tw-bg:          #f8f9fa;
+      --tw-bg-alt:      #e3f2fd;   /* hero/section gradient base */
+      --tw-white:       #ffffff;
+      --tw-surface:     #ffffff;
+
+      /* Text */
+      --tw-text:        #1e293b;
+      --tw-text-muted:  #475569;
+      --tw-text-light:  #6c757d;
+
+      /* Borders */
+      --tw-border:      #dee2e6;
+      --tw-border-dark: #ced4da;
+
+      /* Shadows */
+      --premium-shadow: 0 10px 30px rgba(0,0,0,.12);
+      --shadow-sm:      0 2px 8px rgba(0,0,0,.08);
+      --shadow-md:      0 6px 24px rgba(79,195,247,.18);
+      --shadow-lg:      0 16px 48px rgba(79,195,247,.22);
+
+      /* Radii */
+      --r-sm: 8px;
+      --r-md: 14px;
+      --r-lg: 20px;
+      --r-xl: 28px;
+
+      /* Type */
+      --font-display: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+      --font-body:    'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* ═══════════════════════════════════════════
+       BASE
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--tw-bg);
+      color: var(--tw-text);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      line-height: 1.22;
+      color: var(--tw-text);
+    }
+    a { color: var(--primary-dark); text-decoration: none; }
+    a:hover { color: var(--primary-sky-blue); }
+
+    .section-pad    { padding: 96px 0; }
+    .section-pad-sm { padding: 64px 0; }
+
+    /* Eyebrow */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-display);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+      background: rgba(79,195,247,.14);
+      padding: 5px 13px;
+      border-radius: 100px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(79,195,247,.25);
+    }
+    .eyebrow i { font-size: .8rem; }
+
+    .section-heading {
+      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .section-heading span {
+      background: linear-gradient(45deg, var(--accent-cyan), var(--primary-sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--tw-text-muted);
+      max-width: 580px;
+    }
+    .grad-text {
+      background: linear-gradient(45deg, var(--accent-cyan), var(--accent-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ═══════════════════════════════════════════
+       NAVBAR — white, original style
+    ═══════════════════════════════════════════ */
+    #mainNav {
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+      padding: 0;
+      transition: box-shadow .3s;
+    }
+    #mainNav.scrolled { box-shadow: 0 4px 20px rgba(79,195,247,.2); }
+
+    .navbar-brand {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #000000 !important;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .navbar-brand .brand-icon {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary-sky-blue));
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .navbar-nav .nav-link {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: .9rem;
+      color: #333333 !important;
+      position: relative;
+      transition: color .2s;
+    }
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 14px; right: 14px;
+      height: 2px;
+      background: var(--primary-sky-blue);
+      transform: scaleX(0);
+      transition: transform .25s ease;
+      border-radius: 2px 2px 0 0;
+    }
+    .navbar-nav .nav-link:hover { color: #6c757d !important; }
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after { transform: scaleX(1); }
+    .navbar-nav .nav-link.active { color: var(--primary-dark) !important; }
+
+    .nav-cta {
+      font-family: var(--font-display);
+      font-size: .88rem;
+      font-weight: 700;
+      padding: 9px 22px !important;
+      background: linear-gradient(45deg, var(--accent-cyan), var(--primary-sky-blue));
+      color: #fff !important;
+      border-radius: 50px;
+      margin-left: 10px;
+      box-shadow: 0 4px 15px rgba(0,212,255,.25);
+      transition: all .25s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover {
+      color: #fff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0,212,255,.35) !important;
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #e3f2fd 0%, #e8f5e9 100%);
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    /* Soft dot pattern — signature element */
+    #home::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(13,148,136,.18) 1px, transparent 25px),
+        linear-gradient(90deg, rgba(13,148,136,.18) 1px, transparent 25px);
+      background-size: 50px 50px;
+      opacity: .25;
+    }
+    #home::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(transparent, #f8f9fa);
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .hero-blob-1 {
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(0,212,255,.18), transparent 70%);
+      top: -60px; right: -80px;
+    }
+    .hero-blob-2 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(0,255,127,.12), transparent 70%);
+      bottom: 60px; right: 240px;
+    }
+
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.85);
+      border: 1px solid rgba(79,195,247,.4);
+      color: var(--primary-dark);
+      font-family: var(--font-display);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      padding: 6px 14px 6px 8px;
+      border-radius: 100px;
+      margin-bottom: 26px;
+      backdrop-filter: blur(8px);
+    }
+    .hero-badge .badge-dot {
+      width: 20px; height: 20px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary-sky-blue));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: .65rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -.02em;
+      color: #1e293b;
+      margin-bottom: 22px;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--tw-text-muted);
+      max-width: 500px;
+      margin-bottom: 36px;
+      line-height: 1.75;
+    }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+    /* Primary CTA — original cyan gradient */
+    .btn-primary-tw {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: .92rem;
+      padding: 13px 28px;
+      background: linear-gradient(45deg, var(--accent-cyan), var(--primary-sky-blue));
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all .3s;
+      box-shadow: 0 4px 15px rgba(0,212,255,.25);
+    }
+    .btn-primary-tw:hover {
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,212,255,.4);
+    }
+
+    /* Secondary — green outline, original */
+    .btn-outline-tw {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: .92rem;
+      padding: 13px 28px;
+      background: transparent;
+      color: #0d9488;
+      border: 2px solid var(--accent-green);
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all .3s;
+    }
+    .btn-outline-tw:hover {
+      background: var(--accent-green);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(45deg, var(--accent-cyan), var(--primary-sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .hero-stat-label { font-size: .8rem; color: var(--tw-text-muted); margin-top: 3px; }
+
+    /* Hero visual */
+    .hero-visual { position: relative; z-index: 2; }
+
+    .hero-card-main {
+      background: var(--tw-white);
+      border: 1px solid rgba(79,195,247,.25);
+      border-radius: var(--r-xl);
+      box-shadow: var(--premium-shadow);
+      overflow: hidden;
+    }
+    .hero-card-header {
+      background: linear-gradient(135deg, var(--dark-gray) 0%, var(--light-gray) 50%, #1a252f 100%);
+      padding: 22px 24px 18px;
+      position: relative;
+    }
+    .hero-card-header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 30px;
+      background: var(--tw-white);
+      border-radius: 50% 50% 0 0 / 30px 30px 0 0;
+    }
+    .hero-card-dots { display: flex; gap: 6px; }
+    .hero-card-dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .hero-card-dots span:nth-child(1) { background: #ff6b6b; }
+    .hero-card-dots span:nth-child(2) { background: #ffd93d; }
+    .hero-card-dots span:nth-child(3) { background: #6bcb77; }
+    .hero-card-body { padding: 28px 24px; }
+
+    .code-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: .78rem;
+      padding: 5px 0;
+      color: var(--tw-text-muted);
+    }
+    .code-line .ln  { color: #ced4da; min-width: 16px; text-align: right; }
+    .code-kw  { color: #0099cc; font-weight: 600; }
+    .code-fn  { color: var(--dark-gray); }
+    .code-str { color: #00996b; }
+    .code-cm  { color: #9ca3af; font-style: italic; }
+
+    /* Floating mini-cards */
+    .hero-float-card {
+      position: absolute;
+      background: var(--tw-white);
+      border: 1px solid rgba(79,195,247,.3);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-md);
+      padding: 12px 16px;
+      font-family: var(--font-display);
+      font-size: .78rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      z-index: 3;
+    }
+    .hfc-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem;
+      color: #fff;
+    }
+    .hero-float-card-1 { top: 14%; left: -36px; animation: float-a 4s ease-in-out infinite; }
+    .hero-float-card-2 { bottom: 18%; right: -20px; animation: float-b 5s ease-in-out infinite; }
+    @keyframes float-a { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-10px); } }
+    @keyframes float-b { 0%,100% { transform:translateY(0); } 50% { transform:translateY(8px); }  }
+
+    /* ═══════════════════════════════════════════
+       TECH TICKER
+    ═══════════════════════════════════════════ */
+    .ticker-section {
+      background: var(--tw-white);
+      border-top: 1px solid var(--tw-border);
+      border-bottom: 1px solid var(--tw-border);
+      padding: 20px 0;
+      overflow: hidden;
+    }
+    .ticker-track {
+      display: flex;
+      animation: ticker-scroll 28s linear infinite;
+      width: max-content;
+    }
+    .ticker-section:hover .ticker-track { animation-play-state: paused; }
+    @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 32px;
+      font-family: var(--font-display);
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--tw-text-muted);
+      white-space: nowrap;
+      border-right: 1px solid var(--tw-border);
+    }
+    .ticker-item i { font-size: 1.1rem; color: var(--primary-sky-blue); }
+
+    /* ═══════════════════════════════════════════
+       ABOUT — dark charcoal bg, original style
+    ═══════════════════════════════════════════ */
+    #about {
+      background: linear-gradient(135deg, var(--dark-gray) 0%, #1a252f 100%);
+      color: #ecf0f1;
+      position: relative;
+      overflow: hidden;
+    }
+    #about::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(79,195,247,.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .about-img-wrap {
+      position: relative;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+    }
+    .about-img-wrap img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      border-radius: var(--r-xl);
+      border: 1px solid rgba(79,195,247,.2);
+    }
+    .about-exp-badge {
+      position: absolute;
+      bottom: 24px; left: 24px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary-sky-blue));
+      color: #fff;
+      border-radius: var(--r-md);
+      padding: 16px 20px;
+      font-family: var(--font-display);
+      box-shadow: var(--shadow-md);
+    }
+    .about-exp-num   { font-size: 2rem; font-weight: 800; line-height: 1; }
+    .about-exp-label { font-size: .72rem; font-weight: 600; opacity: .9; margin-top: 3px; }
+
+    /* About section headings */
+    #about .section-heading { color: var(--primary-sky-blue); text-shadow: 0 2px 4px rgba(0,0,0,.4); }
+    #about .section-sub { color: rgba(236,240,241,.75); }
+
+    .about-checklist { list-style: none; padding: 0; margin: 0; }
+    .about-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      font-size: .95rem;
+      color: rgba(236,240,241,.8);
+      border-bottom: 1px solid rgba(79,195,247,.15);
+    }
+    .about-checklist li:last-child { border-bottom: none; }
+    .about-checklist li::before {
+      content: '→';
+      color: var(--primary-sky-blue);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .about-checklist li strong { color: #ecf0f1; }
+
+    /* About section buttons */
+    #about .btn-primary-tw {
+      background: linear-gradient(135deg, var(--primary-sky-blue), #29b6f6);
+      box-shadow: 0 4px 15px rgba(79,195,247,.4);
+    }
+    #about .btn-primary-tw:hover {
+      box-shadow: 0 6px 20px rgba(79,195,247,.6);
+    }
+    #about .btn-outline-tw {
+      color: rgba(236,240,241,.85);
+      border-color: rgba(79,195,247,.5);
+    }
+    #about .btn-outline-tw:hover {
+      background: rgba(79,195,247,.15);
+      color: #fff;
+      border-color: var(--primary-sky-blue);
+    }
+
+    /* ═══════════════════════════════════════════
+       SERVICES — light bg with sky-blue accents
+    ═══════════════════════════════════════════ */
+    #services { background: var(--tw-bg); }
+
+    .service-card {
+      background: var(--tw-white);
+      border: 1px solid var(--tw-border);
+      border-radius: var(--r-lg);
+      padding: 32px 28px;
+      height: 100%;
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--primary-sky-blue));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 40px rgba(79,195,247,.2);
+      border-color: rgba(79,195,247,.4);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      border-radius: var(--r-sm);
+      background: rgba(79,195,247,.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      color: var(--primary-sky-blue);
+      margin-bottom: 20px;
+      transition: background .25s, color .25s;
+    }
+    .service-card:hover .service-icon {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary-sky-blue));
+      color: #fff;
+    }
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .service-desc { font-size: .88rem; color: var(--tw-text-muted); line-height: 1.65; margin-bottom: 18px; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .service-tag {
+      font-family: var(--font-display);
+      font-size: .7rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      background: rgba(79,195,247,.08);
+      border: 1px solid rgba(79,195,247,.25);
+      border-radius: 100px;
+      color: var(--primary-dark);
+    }
+
+    /* ═══════════════════════════════════════════
+       WHY US
+    ═══════════════════════════════════════════ */
+    #why { background: var(--tw-white); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--tw-border);
+      border: 1px solid rgba(79,195,247,.2);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+    }
+    .why-item {
+      background: var(--tw-white);
+      padding: 36px 32px;
+      transition: background .2s;
+    }
+    .why-item:hover { background: rgba(79,195,247,.05); }
+    .why-item-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: rgba(79,195,247,.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem;
+      color: var(--primary-sky-blue);
+      margin-bottom: 16px;
+    }
+    .why-item-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .why-item-desc  { font-size: .87rem; color: var(--tw-text-muted); line-height: 1.65; margin: 0; }
+
+    .why-visual img {
+      border-radius: var(--r-xl);
+      box-shadow: var(--premium-shadow);
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      border: 1px solid rgba(79,195,247,.2);
+    }
+
+    /* ═══════════════════════════════════════════
+       PROCESS
+    ═══════════════════════════════════════════ */
+    #process { background: var(--tw-bg); }
+
+    .process-step {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 28px;
+      background: var(--tw-white);
+      border: 1px solid var(--tw-border);
+      border-radius: var(--r-lg);
+      transition: box-shadow .25s, border-color .25s, transform .25s;
+    }
+    .process-step:hover {
+      box-shadow: 0 10px 30px rgba(79,195,247,.15);
+      border-color: rgba(79,195,247,.35);
+      transform: translateY(-3px);
+    }
+    .process-num {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary-sky-blue));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: .85rem;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,212,255,.3);
+    }
+    .process-title { font-family: var(--font-display); font-size: .98rem; font-weight: 700; margin-bottom: 6px; }
+    .process-desc  { font-size: .86rem; color: var(--tw-text-muted); margin: 0; line-height: 1.6; }
+
+    /* ═══════════════════════════════════════════
+       TESTIMONIALS
+    ═══════════════════════════════════════════ */
+    #testimonials { background: #e3f2fd; }
+
+    .testi-card {
+      background: var(--tw-white);
+      border: 1px solid rgba(79,195,247,.2);
+      border-radius: var(--r-lg);
+      padding: 32px 28px;
+      height: 100%;
+      position: relative;
+      transition: box-shadow .25s, transform .25s;
+    }
+    .testi-card:hover {
+      box-shadow: 0 10px 30px rgba(79,195,247,.18);
+      transform: translateY(-4px);
+    }
+    .testi-quote { position: absolute; top: 22px; right: 24px; font-size: 3rem; line-height: 1; color: rgba(79,195,247,.2); font-family: Georgia, serif; }
+    .testi-stars { color: #f4b030; margin-bottom: 14px; font-size: .85rem; }
+    .testi-text  { font-size: .92rem; color: var(--tw-text-muted); line-height: 1.72; margin-bottom: 22px; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary-sky-blue));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
+    .testi-name { font-family: var(--font-display); font-size: .9rem; font-weight: 700; margin-bottom: 2px; }
+    .testi-role { font-size: .78rem; color: var(--tw-text-muted); }
+
+    /* ═══════════════════════════════════════════
+       CTA BAND — dark charcoal, original feel
+    ═══════════════════════════════════════════ */
+    #cta-band {
+      background: linear-gradient(135deg, var(--dark-gray) 0%, #1a252f 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    #cta-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 50%, rgba(79,195,247,.12) 0%, transparent 60%);
+    }
+    .cta-band-content { position: relative; z-index: 1; }
+    .cta-band-title { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #fff; }
+    .cta-band-sub   { color: rgba(236,240,241,.78); font-size: 1.05rem; max-width: 500px; }
+
+    .btn-white {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: .92rem;
+      padding: 13px 28px;
+      background: linear-gradient(45deg, var(--accent-cyan), var(--primary-sky-blue));
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all .3s;
+      box-shadow: 0 4px 20px rgba(0,212,255,.4);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,212,255,.55); color: #fff; }
+
+    .btn-white-outline {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: .92rem;
+      padding: 13px 28px;
+      background: transparent;
+      color: #0d9488;
+      border: 2px solid var(--accent-green);
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all .3s;
+    }
+    .btn-white-outline:hover { background: var(--accent-green); color: #fff; }
+
+    /* ═══════════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════════ */
+    #contact { background: var(--tw-white); }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--tw-border);
+    }
+    .contact-info-item:first-child { padding-top: 0; }
+    .contact-info-item:last-child  { border-bottom: none; }
+    .ci-icon {
+      width: 44px; height: 44px;
+      flex-shrink: 0;
+      background: rgba(79,195,247,.12);
+      border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      color: var(--primary-sky-blue);
+    }
+    .ci-label { font-family: var(--font-display); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--tw-text-muted); margin-bottom: 3px; }
+    .ci-value { font-weight: 600; font-size: .95rem; color: var(--tw-text); }
+    .ci-value a { color: var(--tw-text); transition: color .2s; }
+    .ci-value a:hover { color: var(--primary-sky-blue); }
+
+    .contact-form-card {
+      background: #f8f9fa;
+      border: 1px solid rgba(79,195,247,.2);
+      border-radius: var(--r-xl);
+      padding: 40px 36px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .form-label { font-family: var(--font-display); font-size: .8rem; font-weight: 700; color: var(--tw-text); margin-bottom: 6px; }
+    .form-control, .form-select {
+      background: var(--tw-white);
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      color: var(--tw-text);
+      font-size: .9rem;
+      padding: 10px 14px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--primary-sky-blue);
+      box-shadow: 0 0 0 .2rem rgba(79,195,247,.2);
+      color: var(--tw-text);
+    }
+    .form-control::placeholder { color: #adb5bd; }
+    textarea.form-control { resize: vertical; min-height: 120px; }
+
+    /* ═══════════════════════════════════════════
+       FOOTER — dark charcoal
+    ═══════════════════════════════════════════ */
+    footer { background: #1a252f; color: rgba(236,240,241,.7); }
+    .footer-top { padding: 72px 0 48px; }
+    .footer-brand {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #fff;
+      display: flex; align-items: center; gap: 9px;
+      margin-bottom: 14px;
+    }
+    .footer-brand .brand-icon {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary-sky-blue));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: .9rem;
+    }
+    .footer-desc { font-size: .87rem; line-height: 1.72; max-width: 300px; }
+    .footer-social { display: flex; gap: 10px; margin-top: 20px; }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(79,195,247,.15);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(236,240,241,.7);
+      font-size: .9rem;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .footer-social a:hover {
+      background: var(--primary-sky-blue);
+      color: #fff;
+      border-color: var(--primary-sky-blue);
+    }
+    .footer-heading {
+      font-family: var(--font-display);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(236,240,241,.35);
+      margin-bottom: 18px;
+    }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: .88rem; color: rgba(236,240,241,.6); transition: color .2s; }
+    .footer-links a:hover { color: var(--primary-sky-blue); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(79,195,247,.1);
+      padding: 20px 0;
+      font-size: .82rem;
+      color: rgba(236,240,241,.3);
+    }
+
+    /* ═══════════════════════════════════════════
+       BACK TO TOP
+    ═══════════════════════════════════════════ */
+    #back-top {
+      position: fixed;
+      bottom: 32px; left: 32px;
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--primary-sky-blue));
+      color: #fff;
+      border: none;
+      border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.05rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .3s;
+      transform: translateY(10px);
+      z-index: 999;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,212,255,.35);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    #back-top:hover   { box-shadow: 0 6px 20px rgba(0,212,255,.5); }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 991.98px) {
+      .hero-float-card-1,
+      .hero-float-card-2 { display: none; }
+      .why-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 767.98px) {
+      .section-pad { padding: 64px 0; }
+      .contact-form-card { padding: 28px 20px; }
+      .hero-stats { gap: 20px; }
+    }
+    @media (max-width: 575.98px) {
+      .hero-actions { flex-direction: column; }
+      .hero-actions a { width: 100%; justify-content: center; }
+      .btn-primary-tw, .btn-outline-tw, .btn-white, .btn-white-outline { display: block; width: 100%; justify-content: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+
+
+    /* ═══════════════════════════════════════════
+       HERO TEXT SLIDER
+    ═══════════════════════════════════════════ */
+    .hero-slider-wrap {
+      overflow: hidden;
+      height: 2rem;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .hero-slider-track {
+      display: flex;
+      flex-direction: column;
+      transition: transform .65s cubic-bezier(.4,0,.2,1);
+    }
+    .hero-slide {
+      height: 2rem;
+      line-height: 2rem;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent-green);   /* deep teal */
+      white-space: nowrap;
+      flex-shrink: 0;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .hero-slide.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* left accent bar */
+    .hero-slider-wrap::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 4px; bottom: 4px;
+      width: 3px;
+      background: var(--accent-green);
+      border-radius: 2px;
+    }
+    .hero-slider-track { padding-left: 14px; }
+
+    @keyframes cursor-blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="./assets/images/techiewebs.png" class="mb-1" alt="TechieWebs" width="48" height="48"> TechieWebs</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about-us">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#our-solutions">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#our-solutions">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Contact</a>
-                    </li>
-                </ul>
-            </div>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#home">
+      <span class="brand-icon"><i class="bi bi-code-slash"></i></span>
+      TechieWebs
+    </a>
+    <button class="navbar-toggler border-0 shadow-none" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-4" style="color:var(--primary-sky-blue)"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonials">Clients</a></li>
+        <li class="nav-item"><a class="nav-link nav-cta" href="#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="home">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="container">
+    <div class="row align-items-center g-5 py-5">
+
+      <div class="col-lg-6 hero-content" data-aos="fade-right" data-aos-duration="700">
+        <div class="hero-badge">
+          <span class="badge-dot"><i class="bi bi-geo-alt-fill"></i></span>
+          Based in Bangalore, India
         </div>
-    </nav>
-
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8 text-center text-lg-start">
-                    <h1>Future-Ready Tech Solutions</h1>
-                    <div class="hero-text mb-3">
-                        <span>We <span class="typing-container" data-text="build powerful web applications to grow your business."></span><span class="cursor"></span></span>
-                        <span>We <span class="typing-container" data-text="create custom web solutions to drive your success."></span><span class="cursor"></span></span>
-                        <span>We <span class="typing-container" data-text="turn your business needs into digital solutions."></span><span class="cursor"></span></span>
-                        <span>We <span class="typing-container" data-text="deliver innovative web tools to boost your efficiency."></span><span class="cursor"></span></span>
-                    </div>
-                    <div class="mb-3">
-                        <a href="#" class="btn btn-primary d-block d-lg-inline-block me-3">View Our Works</a>
-                        <a href="#" class="btn btn-outline-primary d-block d-lg-inline-block">Get a Quote</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-form">
-                        <h3>Get a Call</h3>
-                        <form id="contactform">
-                            <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Name" name="contact-name" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Mobile" name="contact-mobile" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Suitable Time" name="contact-time" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Get a Call</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about-us" class="about-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="welcome-text">
-                        <h1 class="display-5 section-title">About TechieWebs</h1>
-                        <p class="lead">A dynamic startup born in 2025 with a passion for crafting digital experiences that empower businesses to thrive in the fast-evolving online world. Founded by a team of innovative developers and tech enthusiasts, we specialize in building high-performance websites, scalable web applications, and robust APIs—all powered by the freedom and flexibility of open source technologies.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about-card">
-                        <h3 class="section-title">Our Story</h3>
-                        <p>In a landscape dominated by proprietary solutions, we saw an opportunity to democratize development. Launched last year amid the surge of remote work and AI-driven innovation, TechieWebs was created to bridge the gap between complex tech needs and accessible, cost-effective solutions. We're not just coders; we're problem-solvers who believe that great software should be collaborative, transparent, and endlessly adaptable. Drawing from diverse backgrounds in software engineering, design, and entrepreneurship, our small but mighty team is driven by a shared vision: to accelerate your digital transformation without the hefty price tag or vendor lock-in.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card mb-3 about-card">
-                      <div class="row g-0">
-                        <div class="col-md-4">
-                          <img src="./assets/images/what-we-do.webp" class="img-fluid rounded-start" alt="What We Do">
-                        </div>
-                        <div class="col-md-8">
-                          <div class="card-body">
-                            <h3 class="section-title">What We Do</h3>
-                            <p>At the heart of our services is a commitment to open source excellence. We leverage battle-tested frameworks like React, Node.js, Django, and PostgreSQL to deliver:</p>
-                            <ul>
-                                <li><strong>Custom Websites:</strong> Sleek, responsive designs that captivate users and convert visitors into loyal customers.</li>
-                                <li><strong>Web Applications:</strong> Intuitive, feature-rich platforms that streamline operations and scale with your growth.</li>
-                                <li><strong>API Development:</strong> Secure, efficient integrations that connect your ecosystem seamlessly, from third-party services to mobile apps.</li>
-                            </ul>
-                            <p>By choosing open source, we ensure your projects are future-proof, community-supported, and fully yours—no black boxes, just pure potential.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="card mb-3 about-card">
-                      <div class="row g-0">
-                        <div class="col-md-8">
-                          <div class="card-body">
-                            <h3 class="section-title">Why Choose Us?</h3>
-                            <ul>
-                                <li><strong>Innovation at Startup Speed:</strong> As a fresh face in the industry, we bring agile methodologies and cutting-edge trends to every project, iterating quickly to meet your deadlines.</li>
-                                <li><strong>Transparency & Affordability:</strong> Open source means lower costs and full visibility into your code, fostering trust and long-term partnerships.</li>
-                                <li><strong>Sustainability:</strong> We're committed to ethical tech practices, prioritizing security, accessibility, and eco-friendly hosting options.</li>
-                                <li><strong>Proven Results:</strong> Even in our inaugural year, we've partnered with early adopters in e-commerce, fintech, and education to launch MVPs that drive real revenue.</li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <img src="./assets/images/why-choose-us.webp" class="img-fluid rounded-start" alt="Why Choose Us?">
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-5">
-                <p class="lead mb-4">We're more than a development firm—we're your strategic ally in the digital age. Ready to turn your ideas into impactful reality?</p>
-                <a href="#contact" class="btn btn-sky-blue btn-lg">Contact Us Today</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="our-solutions" class="py-5 bg-white">
-      <div class="container">
-        <h2 class="text-center mb-4 text-black">Our Solutions</h2>
-        <p class="text-center mb-5 lead text-gray">From dynamic e-commerce platforms to tailored CRM systems, our web applications empower businesses to thrive in the digital world. Explore our solutions below.</p>
-        
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-      <!-- E-Commerce Platforms -->
-      <div class="col">
-        <div class="card h-100 shadow-lg border-0" style="background-color: #f8f9fa;">
-          <img src="./assets/images/services/e-commerce-platforms.webp" class="card-img-top" alt="Mockup of a storefront with a shopping cart">
-          <div class="card-body">
-            <h5 class="card-title text-black">E-Commerce Platforms</h5>
-            <p class="card-text text-gray">Build robust online stores with seamless payment integration, intuitive product management, and responsive design to drive sales.</p>
-            <p class="card-text"><strong>Use Case:</strong> Retail, B2B, or subscription businesses.</p>
-            <p class="card-text"><strong>Highlights:</strong> Scalability, secure transactions, mobile optimization.</p>
-          </div>
-          <div class="card-footer bg-transparent border-0">
-            <a href="#" class="btn btn-primary w-100" style="background-color: #87CEEB; border-color: #87CEEB;">View Case Study</a>
-            <a href="#" class="btn btn-outline-primary w-100 mt-2" style="color: #87CEEB; border-color: #87CEEB;">Request a Demo</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- CRM Systems -->
-      <div class="col">
-        <div class="card h-100 shadow-lg border-0" style="background-color: #f8f9fa;">
-          <img src="./assets/images/services/crm.webp" class="card-img-top" alt="Dashboard with charts, contact lists, or pipeline views">
-          <div class="card-body">
-            <h5 class="card-title text-black">Customer Relationship Management (CRM) Systems</h5>
-            <p class="card-text text-gray">Streamline customer interactions with custom CRMs tailored to your sales and support workflows.</p>
-            <p class="card-text"><strong>Use Case:</strong> Sales teams, marketing agencies, customer support.</p>
-            <p class="card-text"><strong>Highlights:</strong> Data integration, automation, user-friendly interfaces.</p>
-          </div>
-          <div class="card-footer bg-transparent border-0">
-            <a href="#" class="btn btn-primary w-100" style="background-color: #87CEEB; border-color: #87CEEB;">View Case Study</a>
-            <a href="#" class="btn btn-outline-primary w-100 mt-2" style="color: #87CEEB; border-color: #87CEEB;">Request a Demo</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- CMS -->
-      <div class="col">
-        <div class="card h-100 shadow-lg border-0" style="background-color: #f8f9fa;">
-          <img src="./assets/images/services/cms.webp" class="card-img-top" alt="Admin panel or website editor interface">
-          <div class="card-body">
-            <h5 class="card-title text-black">Content Management Systems (CMS)</h5>
-            <p class="card-text text-gray">Empower your team to manage content effortlessly with flexible, scalable CMS solutions.</p>
-            <p class="card-text"><strong>Use Case:</strong> Blogs, corporate websites, portfolios.</p>
-            <p class="card-text"><strong>Highlights:</strong> Easy content updates, SEO optimization, multi-user support.</p>
-          </div>
-          <div class="card-footer bg-transparent border-0">
-            <a href="#" class="btn btn-primary w-100" style="background-color: #87CEEB; border-color: #87CEEB;">View Case Study</a>
-            <a href="#" class="btn btn-outline-primary w-100 mt-2" style="color: #87CEEB; border-color: #87CEEB;">Request a Demo</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Booking and Scheduling Apps -->
-      <div class="col">
-        <div class="card h-100 shadow-lg border-0" style="background-color: #f8f9fa;">
-          <img src="./assets/images/services/booking-and-scheduling-apps.webp" class="card-img-top" alt="Calendar interface or booking form">
-          <div class="card-body">
-            <h5 class="card-title text-black">Booking and Scheduling Apps</h5>
-            <p class="card-text text-gray">Simplify appointments and reservations with intuitive, automated scheduling solutions.</p>
-            <p class="card-text"><strong>Use Case:</strong> Salons, clinics, consultancies, event organizers.</p>
-            <p class="card-text"><strong>Highlights:</strong> Real-time availability, automated reminders, integration with calendars.</p>
-          </div>
-          <div class="card-footer bg-transparent border-0">
-            <a href="#" class="btn btn-primary w-100" style="background-color: #87CEEB; border-color: #87CEEB;">View Case Study</a>
-            <a href="#" class="btn btn-outline-primary w-100 mt-2" style="color: #87CEEB; border-color: #87CEEB;">Request a Demo</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Inventory Management Systems -->
-      <div class="col">
-        <div class="card h-100 shadow-lg border-0" style="background-color: #f8f9fa;">
-          <img src="./assets/images/services/ims.webp" class="card-img-top" alt="Inventory dashboard with stock levels or barcode scanning">
-          <div class="card-body">
-            <h5 class="card-title text-black">Inventory Management Systems</h5>
-            <p class="card-text text-gray">Optimize operations with powerful tools to track inventory, manage stock, and streamline logistics.</p>
-            <p class="card-text"><strong>Use Case:</strong> Retail, warehouses, manufacturing.</p>
-            <p class="card-text"><strong>Highlights:</strong> Real-time tracking, reporting, integration with e-commerce.</p>
-          </div>
-          <div class="card-footer bg-transparent border-0">
-            <a href="#" class="btn btn-primary w-100" style="background-color: #87CEEB; border-color: #87CEEB;">View Case Study</a>
-            <a href="#" class="btn btn-outline-primary w-100 mt-2" style="color: #87CEEB; border-color: #87CEEB;">Request a Demo</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Custom Web Applications -->
-      <div class="col">
-        <div class="card h-100 shadow-lg border-0" style="background-color: #f8f9fa;">
-          <img src="./assets/images/services/custom-web-apps.webp" class="card-img-top" alt="Custom app interface or workflow diagram">
-          <div class="card-body">
-            <h5 class="card-title text-black">Custom Web Applications</h5>
-            <p class="card-text text-gray">Transform your unique ideas into reality with bespoke web applications designed for your specific needs.</p>
-            <p class="card-text"><strong>Use Case:</strong> Niche industries, startups, specialized workflows.</p>
-            <p class="card-text"><strong>Highlights:</strong> Tailored functionality, scalability, ongoing support.</p>
-          </div>
-          <div class="card-footer bg-transparent border-0">
-            <a href="#" class="btn btn-primary w-100" style="background-color: #87CEEB; border-color: #87CEEB;">View Case Study</a>
-            <a href="#" class="btn btn-outline-primary w-100 mt-2" style="color: #87CEEB; border-color: #87CEEB;">Request a Demo</a>
-          </div>
-        </div>
-      </div>
-    </div>  </div>
-    </section>
-
-    <!-- ===================== CONTACT SECTION ===================== -->
-    <section class="py-5 bg-light" id="contact">
-      <div class="container">
-
-        <div class="row justify-content-center mb-5">
-          <div class="col-lg-8 text-center">
-            <h2 class="fw-bold mb-3">Get In Touch</h2>
-            <p class="text-muted lead">
-              Have a project in mind? Let's talk about it!
-            </p>
-          </div>
-        </div>
-
-        <div class="row g-5">
-
-          <!-- Left side - Contact Info -->
-          <div class="col-lg-5">
-            <div class="card border-0 shadow-sm h-100">
-              <div class="card-body p-4 p-xl-5">
-                <h4 class="mb-4 fw-bold">Contact Information</h4>
-                <ul class="list-unstyled contact-info mb-5">
-                  <li class="mb-4 d-flex">
-                    <div class="icon fs-4 me-3 text-primary">
-                      <i class="bi bi-envelope-fill"></i>
-                    </div>
-                    <div>
-                      <strong>Email</strong><br>
-                      <a href="mailto:hello@techiewebs.com" class="text-decoration-none">
-                        hello@techiewebs.com
-                      </a>
-                    </div>
-                  </li>
-                  <li class="mb-4 d-flex">
-                    <div class="icon fs-4 me-3 text-primary">
-                      <i class="bi bi-telephone-fill"></i>
-                    </div>
-                    <div>
-                      <strong>Phone</strong><br>
-                      <a href="tel:919035151301" class="text-decoration-none">
-                        +91 903 515 1301
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right side - Contact Form -->
-          <div class="col-lg-7">
-            <div class="card border-0 shadow-sm h-100">
-              <div class="card-body p-4 p-xl-5">
-
-                <form id="contact-form" class="row g-4">
-
-                  <div class="col-md-6">
-                    <label for="name" class="form-label">Full Name</label>
-                    <input type="text" class="form-control form-control-lg" id="name" required>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control form-control-lg" id="email" required>
-                  </div>
-
-                  <div class="col-12">
-                    <label for="subject" class="form-label">Subject</label>
-                    <input type="text" class="form-control form-control-lg" id="subject" required>
-                  </div>
-
-                  <div class="col-12">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control form-control-lg" id="message" rows="6" required></textarea>
-                  </div>
-
-                  <div class="col-12">
-                    <button type="submit" class="btn btn-primary btn-lg px-5">
-                      Send Message
-                    </button>
-                  </div>
-
-                </form>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <footer class="bg-dark text-white text-center py-4 mt-auto">
-      <div class="container">
-        <p class="mb-0">
-          © <span id="current-year"></span> TechieWebs | All rights reserved.
+        <h1 class="hero-title">
+          Future-Ready<br/>
+          <span class="grad-text">Digital Solutions</span><br/>
+          Built to Scale
+        </h1>
+        <p class="hero-desc">
+          We design and develop high-performance websites, custom web applications,
+          and scalable APIs — all powered by open source technology.
+          No vendor lock-in, no black boxes. Just clean code that grows with your business.
         </p>
+
+        <div class="hero-slider-wrap" aria-live="polite" aria-atomic="true">
+          <div class="hero-slider-track" id="heroSlider">
+            <div class="hero-slide active">We build powerful web applications to grow your business.</div>
+            <div class="hero-slide">We create custom web solutions to drive your success.</div>
+            <div class="hero-slide">We turn your business needs into digital solutions.</div>
+            <div class="hero-slide">We deliver innovative web tools to boost your efficiency.</div>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="#services" class="btn-primary-tw">Explore Services <i class="bi bi-arrow-right"></i></a>
+          <a href="#contact"  class="btn-outline-tw"><i class="bi bi-chat-dots"></i> Let's Talk</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">50+</div>
+            <div class="hero-stat-label">Projects Delivered</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">30+</div>
+            <div class="hero-stat-label">Happy Clients</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">100%</div>
+            <div class="hero-stat-label">Open Source Stack</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">24h</div>
+            <div class="hero-stat-label">Avg. Response Time</div>
+          </div>
+        </div>
       </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#contactform').on('submit', function(e) {
-                e.preventDefault();
-                
-                let formData = {
-                    name: $('input[name="contact-name"]').val(),
-                    mobile: $('input[name="contact-mobile"]').val(),
-                    time: $('input[name="contact-time"]').val()
-                };
+      <div class="col-lg-6 hero-visual" data-aos="fade-left" data-aos-duration="700" data-aos-delay="150">
+        <div style="position:relative;padding:40px 48px 40px 16px;">
+          <div class="hero-float-card hero-float-card-1">
+            <span class="hfc-icon" style="background:linear-gradient(135deg,var(--accent-cyan),var(--primary-sky-blue))">
+              <i class="bi bi-check2-circle"></i>
+            </span>
+            <div>
+              <div style="font-size:.7rem;color:var(--tw-text-muted)">Project status</div>
+              <div style="color:var(--tw-text)">Live &amp; Running</div>
+            </div>
+          </div>
 
-                $.ajax({
-                    url: 'https://forms.refle.ct/api/test-email',
-                    type: 'POST',
-                    data: JSON.stringify(formData),
-                    contentType: 'application/json',
-                    success: function(response) {
-                        console.log('Success:', response);
-                        alert('Form submitted successfully!');
-                        $('#contactform')[0].reset();
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Error:', error);
-                        alert('Error submitting form: ' + error);
-                    }
-                });
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            const $typingContainers = $('.typing-container');
-            const texts = $typingContainers.map(function() {
-                return $(this).data('text');
-            }).get();
-            let currentTextIndex = 0;
+          <div class="hero-card-main">
+            <div class="hero-card-header">
+              <div class="hero-card-dots"><span></span><span></span><span></span></div>
+              <div style="margin-top:12px;font-family:'Courier New',monospace;font-size:.78rem;color:rgba(255,255,255,.6)">
+                techiewebs / your-project
+              </div>
+            </div>
+            <div class="hero-card-body">
+              <div class="code-line"><span class="ln">1</span><span class="code-cm">// TechieWebs delivers</span></div>
+              <div class="code-line"><span class="ln">2</span><span class="code-kw">const</span> <span class="code-fn">project</span> = {</div>
+              <div class="code-line"><span class="ln">3</span>&nbsp;&nbsp;type: <span class="code-str">"web-app"</span>,</div>
+              <div class="code-line"><span class="ln">4</span>&nbsp;&nbsp;stack: [<span class="code-str">"React"</span>, <span class="code-str">"Node.js"</span>],</div>
+              <div class="code-line"><span class="ln">5</span>&nbsp;&nbsp;location: <span class="code-str">"Bangalore"</span>,</div>
+              <div class="code-line"><span class="ln">6</span>&nbsp;&nbsp;status: <span class="code-str">"deployed ✓"</span></div>
+              <div class="code-line"><span class="ln">7</span>};</div>
+              <div class="code-line" style="margin-top:8px;"><span class="ln">8</span>
+                <span class="code-fn">launch</span>(<span class="code-fn">project</span>)
+                <span style="display:inline-block;width:8px;height:14px;background:var(--primary-sky-blue);margin-left:2px;animation:cursor-blink 1s infinite;vertical-align:middle;border-radius:1px;"></span>
+              </div>
+            </div>
+          </div>
 
-            $typingContainers.each(function(index) {
-                $(this).parent().css('display', index === 0 ? 'block' : 'none');
-                if (index === 0) $(this).addClass('active');
-            });
+          <div class="hero-float-card hero-float-card-2">
+            <span class="hfc-icon" style="background:linear-gradient(135deg,#00996b,var(--accent-green))">
+              <i class="bi bi-lightning-charge"></i>
+            </span>
+            <div>
+              <div style="font-size:.7rem;color:var(--tw-text-muted)">Build time</div>
+              <div style="color:var(--tw-text)">1.2s · Optimised</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-            function typeText($container, text, callback) {
-                let charIndex = 0;
-                $container.text('');
-                const typingSpeed = 50;
+    </div>
+  </div>
+</section>
 
-                function type() {
-                    if (charIndex < text.length) {
-                        $container.text($container.text() + text.charAt(charIndex));
-                        charIndex++;
-                        setTimeout(type, typingSpeed);
-                    } else {
-                        callback();
-                    }
-                }
-                type();
-            }
+<!-- ═══════════ TICKER ═══════════ -->
+<div class="ticker-section">
+  <div class="ticker-track">
+    <div class="ticker-item"><i class="bi bi-filetype-jsx"></i> React</div>
+    <div class="ticker-item"><i class="bi bi-node-plus"></i> Node.js</div>
+    <div class="ticker-item"><i class="bi bi-filetype-py"></i> Django</div>
+    <div class="ticker-item"><i class="bi bi-database"></i> PostgreSQL</div>
+    <div class="ticker-item"><i class="bi bi-wordpress"></i> WordPress</div>
+    <div class="ticker-item"><i class="bi bi-cloud-upload"></i> AWS / GCP</div>
+    <div class="ticker-item"><i class="bi bi-git"></i> Git &amp; CI/CD</div>
+    <div class="ticker-item"><i class="bi bi-shield-check"></i> REST &amp; GraphQL</div>
+    <div class="ticker-item"><i class="bi bi-phone"></i> Mobile-First</div>
+    <div class="ticker-item"><i class="bi bi-search"></i> SEO Optimised</div>
+    <div class="ticker-item"><i class="bi bi-filetype-jsx"></i> React</div>
+    <div class="ticker-item"><i class="bi bi-node-plus"></i> Node.js</div>
+    <div class="ticker-item"><i class="bi bi-filetype-py"></i> Django</div>
+    <div class="ticker-item"><i class="bi bi-database"></i> PostgreSQL</div>
+    <div class="ticker-item"><i class="bi bi-wordpress"></i> WordPress</div>
+    <div class="ticker-item"><i class="bi bi-cloud-upload"></i> AWS / GCP</div>
+    <div class="ticker-item"><i class="bi bi-git"></i> Git &amp; CI/CD</div>
+    <div class="ticker-item"><i class="bi bi-shield-check"></i> REST &amp; GraphQL</div>
+    <div class="ticker-item"><i class="bi bi-phone"></i> Mobile-First</div>
+    <div class="ticker-item"><i class="bi bi-search"></i> SEO Optimised</div>
+  </div>
+</div>
 
-            function showNextTagline() {
-                const $currentContainer = $typingContainers.eq(currentTextIndex);
-                $currentContainer.removeClass('active');
-                $currentContainer.parent().css('display', 'none');
+<!-- ═══════════ ABOUT ═══════════ -->
+<section id="about" class="section-pad">
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5" data-aos="fade-right" data-aos-duration="700">
+        <div class="about-img-wrap">
+          <img src="https://techiewebs.com/assets/images/what-we-do.webp"
+               alt="TechieWebs team at work in Bangalore" loading="lazy"/>
+          <div class="about-exp-badge">
+            <div class="about-exp-num">2025</div>
+            <div class="about-exp-label">Founded in Bangalore</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
+        <span class="eyebrow"><i class="bi bi-building"></i> About TechieWebs</span>
+        <h2 class="section-heading">Bangalore's <span>Open-Source</span><br/>Development Studio</h2>
+        <p class="welcome-text" style="color:rgba(236,240,241,.8);font-size:1rem;margin-bottom:24px;line-height:1.8;">
+          Born in 2025 from a shared belief that great software should be transparent,
+          affordable, and fully owned by you. We're a lean team of developers, designers,
+          and architects who've traded corporate comfort for startup speed — building
+          products for startups, SMEs, and growth-stage businesses across India and beyond.
+        </p>
+        <ul class="about-checklist">
+          <li><strong>Open-source by default.</strong>&nbsp;React, Node.js, Django, PostgreSQL — no proprietary lock-in, ever.</li>
+          <li><strong>Agile delivery.</strong>&nbsp;Two-week sprints, weekly demos, and full code ownership transferred at launch.</li>
+          <li><strong>Bangalore-based, globally minded.</strong>&nbsp;IST timezone, English fluency, clients across Asia, Europe, and the US.</li>
+          <li><strong>Security &amp; accessibility first.</strong>&nbsp;OWASP practices and WCAG 2.1 compliance built into every project.</li>
+          <li><strong>Post-launch partnership.</strong>&nbsp;We don't disappear after go-live. Retainer and AMC plans available.</li>
+        </ul>
+        <div class="mt-4 d-flex gap-3 flex-wrap">
+          <a href="#services" class="btn-primary-tw">Our Services <i class="bi bi-arrow-right"></i></a>
+          <a href="#contact"  class="btn-outline-tw"><i class="bi bi-telephone"></i> Talk to Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                currentTextIndex = (currentTextIndex + 1) % texts.length;
-                const $nextContainer = $typingContainers.eq(currentTextIndex);
-                $nextContainer.parent().css('display', 'block');
-                $nextContainer.addClass('active');
+<!-- ═══════════ SERVICES ═══════════ -->
+<section id="services" class="section-pad">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
+      <div class="col-lg-7">
+        <span class="eyebrow"><i class="bi bi-grid-3x3-gap"></i> Our Solutions</span>
+        <h2 class="section-heading">Everything Your <span>Digital Business</span> Needs</h2>
+        <p class="section-sub mx-auto">From a landing page to a full-scale SaaS platform — we build it, maintain it, and help it grow.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-bag-check"></i></div>
+          <div class="service-title">E-Commerce Platforms</div>
+          <div class="service-desc">Full-stack online stores with cart, payments (Razorpay, Stripe, PhonePe), inventory, and admin dashboards — built to convert and scale.</div>
+          <div class="service-tags"><span class="service-tag">Retail</span><span class="service-tag">B2B</span><span class="service-tag">Subscriptions</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-people"></i></div>
+          <div class="service-title">Custom CRM Systems</div>
+          <div class="service-desc">Purpose-built CRMs that fit your sales pipeline, not the other way round. Lead tracking, automation, reporting — wired into your existing tools.</div>
+          <div class="service-tags"><span class="service-tag">Sales</span><span class="service-tag">Marketing</span><span class="service-tag">Support</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-pencil-square"></i></div>
+          <div class="service-title">Content Management</div>
+          <div class="service-desc">WordPress, headless CMS, or fully custom — your team can update content without touching code. SEO-ready, multi-user, multilingual.</div>
+          <div class="service-tags"><span class="service-tag">Blogs</span><span class="service-tag">Corporate</span><span class="service-tag">Portals</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-calendar2-check"></i></div>
+          <div class="service-title">Booking &amp; Scheduling Apps</div>
+          <div class="service-desc">Real-time slot booking, automated reminders via WhatsApp/SMS, Google Calendar sync, and payment collection — all in one flow.</div>
+          <div class="service-tags"><span class="service-tag">Clinics</span><span class="service-tag">Salons</span><span class="service-tag">Consultants</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-box-seam"></i></div>
+          <div class="service-title">Inventory Management</div>
+          <div class="service-desc">Track stock across warehouses, auto-reorder on low levels, barcode scanning, and real-time dashboards connected to your e-commerce store.</div>
+          <div class="service-tags"><span class="service-tag">Retail</span><span class="service-tag">Warehouses</span><span class="service-tag">Manufacturing</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-cpu"></i></div>
+          <div class="service-title">Custom Web Applications</div>
+          <div class="service-desc">If your workflow doesn't fit any off-the-shelf product, we build it from scratch. MVPs in 6 weeks, production-grade within 3 months.</div>
+          <div class="service-tags"><span class="service-tag">Startups</span><span class="service-tag">SaaS</span><span class="service-tag">Niche Tools</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-arrow-left-right"></i></div>
+          <div class="service-title">API Development</div>
+          <div class="service-desc">RESTful and GraphQL APIs built with security and performance in mind. Third-party integrations — payments, ERP, CRM, logistics, and more.</div>
+          <div class="service-tags"><span class="service-tag">REST</span><span class="service-tag">GraphQL</span><span class="service-tag">Webhooks</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-palette2"></i></div>
+          <div class="service-title">UI/UX Design</div>
+          <div class="service-desc">From wireframes to pixel-perfect prototypes in Figma. We design interfaces that are intuitive for users and efficient to develop.</div>
+          <div class="service-tags"><span class="service-tag">Figma</span><span class="service-tag">Prototyping</span><span class="service-tag">Design Systems</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-wrench-adjustable"></i></div>
+          <div class="service-title">Maintenance &amp; AMC</div>
+          <div class="service-desc">Monthly retainer plans covering security patches, performance monitoring, feature updates, and priority support. Your site stays healthy, always.</div>
+          <div class="service-tags"><span class="service-tag">AMC Plans</span><span class="service-tag">Monitoring</span><span class="service-tag">SLA</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                typeText($nextContainer, texts[currentTextIndex], function() {
-                    setTimeout(showNextTagline, 2000);
-                });
-            }
+<!-- ═══════════ WHY US ═══════════ -->
+<section id="why" class="section-pad">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 why-visual" data-aos="fade-right" data-aos-duration="700">
+        <img src="https://techiewebs.com/assets/images/why-choose-us.webp"
+             alt="TechieWebs — why choose us" loading="lazy"/>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
+        <span class="eyebrow"><i class="bi bi-trophy"></i> Why TechieWebs</span>
+        <h2 class="section-heading mb-4">Built Different,<br/><span>For a Reason</span></h2>
+        <div class="why-grid">
+          <div class="why-item">
+            <div class="why-item-icon"><i class="bi bi-lightning-charge"></i></div>
+            <div class="why-item-title">Startup Speed</div>
+            <p class="why-item-desc">Agile sprints, rapid prototyping, and zero corporate lag. We move as fast as your business needs to.</p>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon"><i class="bi bi-eye"></i></div>
+            <div class="why-item-title">Full Transparency</div>
+            <p class="why-item-desc">Your code, your repo, your IP. We document everything and hand it over at delivery — no surprises.</p>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon"><i class="bi bi-currency-rupee"></i></div>
+            <div class="why-item-title">India-Priced, Global Quality</div>
+            <p class="why-item-desc">Bangalore-based means competitive rates. Senior developer quality without agency-markup pricing.</p>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon"><i class="bi bi-shield-check"></i></div>
+            <div class="why-item-title">Security-First</div>
+            <p class="why-item-desc">OWASP Top 10 mitigation, HTTPS, SQL-injection-safe code, and regular vulnerability audits built in.</p>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon"><i class="bi bi-telephone-forward"></i></div>
+            <div class="why-item-title">Long-Term Support</div>
+            <p class="why-item-desc">Post-launch AMC plans, WhatsApp support, and a Bangalore team in your timezone.</p>
+          </div>
+          <div class="why-item">
+            <div class="why-item-icon"><i class="bi bi-graph-up-arrow"></i></div>
+            <div class="why-item-title">Built to Scale</div>
+            <p class="why-item-desc">Architecture designed for growth. Whether you go from 100 to 100,000 users, the foundation holds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            typeText($typingContainers.eq(0), texts[0], function() {
-                setTimeout(showNextTagline, 2000);
-            });
-        });
-    </script>
-    <script>
-      document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+<!-- ═══════════ PROCESS ═══════════ -->
+<section id="process" class="section-pad" style="background:var(--tw-bg);">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
+      <div class="col-lg-6">
+        <span class="eyebrow"><i class="bi bi-diagram-3"></i> How We Work</span>
+        <h2 class="section-heading">From Brief to <span>Browser</span></h2>
+        <p class="section-sub mx-auto">A transparent, collaborative process that keeps you in control at every stage.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <div>
+            <div class="process-title">Discovery Call</div>
+            <p class="process-desc">30-minute free call to understand your goals, audience, and constraints. We ask the hard questions upfront.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <div>
+            <div class="process-title">Proposal &amp; Scope</div>
+            <p class="process-desc">Detailed SOW with timeline, milestones, and fixed pricing — no hourly-rate surprises mid-project.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <div>
+            <div class="process-title">Design &amp; Prototype</div>
+            <p class="process-desc">Figma wireframes and high-fidelity mockups for your approval before a single line of code is written.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="process-step">
+          <div class="process-num">04</div>
+          <div>
+            <div class="process-title">Agile Development</div>
+            <p class="process-desc">Two-week sprints with weekly demo calls. You see working software early and often — not just at the end.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+        <div class="process-step">
+          <div class="process-num">05</div>
+          <div>
+            <div class="process-title">QA &amp; Testing</div>
+            <p class="process-desc">Cross-browser, mobile, and performance testing. Lighthouse scores above 90 are our baseline, not a bonus.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
+        <div class="process-step">
+          <div class="process-num">06</div>
+          <div>
+            <div class="process-title">Launch &amp; Handover</div>
+            <p class="process-desc">Deployment to your servers, full source code handover, and a live training session for your team.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TESTIMONIALS ═══════════ -->
+<section id="testimonials" class="section-pad">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
+      <div class="col-lg-6">
+        <span class="eyebrow"><i class="bi bi-chat-quote"></i> Client Words</span>
+        <h2 class="section-heading">Trusted by <span>Builders</span> Like You</h2>
+        <p class="section-sub mx-auto">Early partners who took the leap with us — and haven't looked back.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="testi-text">TechieWebs rebuilt our entire e-commerce frontend in 8 weeks. Page load dropped from 6s to under 1.5s. Our conversion rate has improved noticeably since launch.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">RK</div>
+            <div><div class="testi-name">Rahul Krishnamurthy</div><div class="testi-role">Founder, OrganicKart — Bangalore</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <p class="testi-text">We needed a custom booking system for our clinic chain. The team understood our workflow immediately, built exactly what we asked for, and delivered two days early.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">PS</div>
+            <div><div class="testi-name">Dr. Priya Suresh</div><div class="testi-role">Director, HealthPlus Clinics — Mysuru</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+          <p class="testi-text">As a fintech startup we needed speed and compliance. TechieWebs got us to MVP in under 6 weeks with clean, auditable code. Highly recommended for early-stage teams.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AM</div>
+            <div><div class="testi-name">Arjun Menon</div><div class="testi-role">CTO, PayFlo — Bengaluru</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA BAND ═══════════ -->
+<section id="cta-band" class="section-pad-sm">
+  <div class="container cta-band-content">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7" data-aos="fade-right">
+        <h2 class="cta-band-title">Have a project in mind?</h2>
+        <p class="cta-band-sub mt-2">Tell us about it in 2 minutes. We'll reply with a free consultation and ballpark estimate within 24 hours.</p>
+      </div>
+      <div class="col-lg-5 text-lg-end" data-aos="fade-left">
+        <div class="d-flex gap-3 justify-content-lg-end flex-wrap">
+          <a href="#contact"          class="btn-white"><i class="bi bi-send"></i> Start a Project</a>
+          <a href="tel:919035151301"  class="btn-white-outline"><i class="bi bi-telephone"></i> Call Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section id="contact" class="section-pad">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
+      <div class="col-lg-6">
+        <span class="eyebrow"><i class="bi bi-envelope"></i> Get In Touch</span>
+        <h2 class="section-heading">Let's Build <span>Something Great</span></h2>
+        <p class="section-sub mx-auto">Drop us a message and we'll get back to you within one business day.</p>
+      </div>
+    </div>
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-4" data-aos="fade-right" data-aos-duration="700">
+        <div class="contact-info-item">
+          <div class="ci-icon"><i class="bi bi-envelope-at"></i></div>
+          <div><div class="ci-label">Email</div><div class="ci-value"><a href="mailto:hello@techiewebs.com">hello@techiewebs.com</a></div></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon"><i class="bi bi-telephone"></i></div>
+          <div><div class="ci-label">Phone / WhatsApp</div><div class="ci-value"><a href="tel:919035151301">+91 903 515 1301</a></div></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon"><i class="bi bi-geo-alt"></i></div>
+          <div><div class="ci-label">Location</div><div class="ci-value">Bengaluru, Karnataka, India</div></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon"><i class="bi bi-clock"></i></div>
+          <div><div class="ci-label">Business Hours</div><div class="ci-value">Mon–Sat · 9:00 AM – 7:00 PM IST</div></div>
+        </div>
+        <div style="margin-top:28px;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(79,195,247,.2);">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497698.7992279032!2d77.35073485!3d12.95364037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sin!4v1704000000000"
+            width="100%" height="200" style="border:0;display:block;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="TechieWebs location — Bengaluru">
+          </iframe>
+        </div>
+      </div>
+      <div class="col-lg-8" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
+        <div class="contact-form-card">
+          <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:24px;">Tell us about your project</h4>
+          <form id="contactForm" novalidate>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label class="form-label" for="cf-name">Full Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="cf-name" placeholder="Rahul Sharma" required/>
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="cf-email">Email Address <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="cf-email" placeholder="rahul@company.com" required/>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="cf-phone">Phone / WhatsApp</label>
+                <input type="tel" class="form-control" id="cf-phone" placeholder="+91 98765 43210"/>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="cf-service">Service Needed</label>
+                <select class="form-select" id="cf-service">
+                  <option value="" disabled selected>Select a service…</option>
+                  <option>E-Commerce Platform</option>
+                  <option>Custom CRM</option>
+                  <option>CMS / Website</option>
+                  <option>Booking App</option>
+                  <option>Web Application</option>
+                  <option>API Development</option>
+                  <option>UI/UX Design</option>
+                  <option>Maintenance / AMC</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="cf-budget">Approximate Budget</label>
+                <select class="form-select" id="cf-budget">
+                  <option value="" disabled selected>Select range…</option>
+                  <option>Under ₹50,000</option>
+                  <option>₹50,000 – ₹1,50,000</option>
+                  <option>₹1,50,000 – ₹5,00,000</option>
+                  <option>₹5,00,000+</option>
+                  <option>Prefer to discuss</option>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="cf-timeline">Expected Timeline</label>
+                <select class="form-select" id="cf-timeline">
+                  <option value="" disabled selected>Select…</option>
+                  <option>ASAP (within 2 weeks)</option>
+                  <option>1 – 2 months</option>
+                  <option>3 – 6 months</option>
+                  <option>Flexible</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="cf-message">Project Details <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="cf-message" rows="4"
+                  placeholder="Describe what you're building, the problem it solves, and any tech or design preferences…" required></textarea>
+                <div class="invalid-feedback">Please describe your project.</div>
+              </div>
+              <div class="col-12 mt-2">
+                <button type="submit" class="btn-primary-tw" id="cf-submit" style="width:100%;justify-content:center;">
+                  <span id="cf-btn-text"><i class="bi bi-send me-1"></i> Send Message</span>
+                  <span id="cf-btn-loading" style="display:none;">
+                    <span class="spinner-border spinner-border-sm me-2" role="status"></span> Sending…
+                  </span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="footer-brand">
+            <span class="brand-icon"><i class="bi bi-code-slash"></i></span>
+            TechieWebs
+          </div>
+          <p class="footer-desc">Bangalore's open-source web development studio. We build digital products that are fast, secure, and fully yours — no lock-in, no surprises.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="#" aria-label="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/919035151301" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <div class="footer-heading">Company</div>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#process">Our Process</a></li>
+            <li><a href="#testimonials">Clients</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="footer-heading">Services</div>
+          <ul class="footer-links">
+            <li><a href="#services">E-Commerce Platforms</a></li>
+            <li><a href="#services">Custom CRM Systems</a></li>
+            <li><a href="#services">CMS Development</a></li>
+            <li><a href="#services">Booking Apps</a></li>
+            <li><a href="#services">API Development</a></li>
+            <li><a href="#services">UI/UX Design</a></li>
+            <li><a href="#services">AMC &amp; Maintenance</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <div class="footer-heading">Contact</div>
+          <ul class="footer-links" style="line-height:2;">
+            <li><i class="bi bi-envelope me-2" style="color:var(--primary-sky-blue)"></i>hello@techiewebs.com</li>
+            <li><i class="bi bi-telephone me-2" style="color:var(--primary-sky-blue)"></i>+91 903 515 1301</li>
+            <li><i class="bi bi-geo-alt me-2" style="color:var(--primary-sky-blue)"></i>Bengaluru, Karnataka</li>
+            <li style="margin-top:16px;">
+              <a href="#contact" class="btn-primary-tw" style="font-size:.82rem;padding:10px 20px;">
+                <i class="bi bi-chat-dots"></i> Free Consultation
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <span>&copy; <span id="yr"></span> TechieWebs. All rights reserved.</span>
+      <span>Made with <i class="bi bi-heart-fill" style="color:#e25555;font-size:.75rem"></i> in Bangalore, India</span>
+    </div>
+  </div>
+</footer>
+
+<button id="back-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+<div id="form-toast" style="position:fixed;bottom:28px;right:28px;z-index:9999;"></div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+$(function () {
+  AOS.init({ once: true, offset: 60, easing: 'ease-out-cubic' });
+  $('#yr').text(new Date().getFullYear());
+
+  var $nav = $('#mainNav');
+  $(window).on('scroll.nav', function () {
+    $nav.toggleClass('scrolled', $(this).scrollTop() > 40);
+    updateActiveNav();
+  });
+
+  function updateActiveNav() {
+    var scrollPos = $(window).scrollTop() + 100;
+    $('section[id]').each(function () {
+      var top    = $(this).offset().top;
+      var bottom = top + $(this).outerHeight();
+      var id     = $(this).attr('id');
+      if (scrollPos >= top && scrollPos < bottom) {
+        $('.navbar-nav .nav-link').removeClass('active');
+        $('.navbar-nav .nav-link[href="#' + id + '"]').addClass('active');
+      }
+    });
+  }
+
+  $(document).on('click', 'a[href^="#"]', function (e) {
+    var target = $(this.getAttribute('href'));
+    if (target.length) {
+      e.preventDefault();
+      $('html,body').animate({ scrollTop: target.offset().top - 50 }, 560);
+      $('#navMenu').collapse('hide');
+    }
+  });
+
+  var $btt = $('#back-top');
+  $(window).on('scroll.btt', function () { $btt.toggleClass('visible', $(this).scrollTop() > 400); });
+  $btt.on('click', function () { $('html,body').animate({ scrollTop: 0 }, 500); });
+
+  $('#contactForm').on('submit', function (e) {
+    e.preventDefault();
+    if (!this.checkValidity()) { $(this).addClass('was-validated'); return; }
+    $('#cf-btn-text').hide();
+    $('#cf-btn-loading').show();
+    setTimeout(function () {
+      $('#cf-btn-text').show();
+      $('#cf-btn-loading').hide();
+      $('#contactForm')[0].reset();
+      $('#contactForm').removeClass('was-validated');
+      showToast('success', "Message sent! We'll be in touch within 24 hours.");
+    }, 1600);
+  });
+
+  function showToast(type, msg) {
+    var color = type === 'success' ? 'var(--primary-sky-blue)' : '#dc3545';
+    var icon  = type === 'success' ? 'bi-check-circle-fill'    : 'bi-exclamation-circle-fill';
+    var html  = '<div style="background:#fff;border:1px solid #dee2e6;border-left:4px solid ' + color + ';' +
+      'border-radius:10px;padding:14px 18px;box-shadow:0 6px 24px rgba(0,0,0,.1);' +
+      'display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-size:.88rem;color:#1e293b;">' +
+      '<i class="bi ' + icon + '" style="font-size:1.2rem;color:' + color + '"></i>' + msg + '</div>';
+    $('#form-toast').html(html).hide().fadeIn(300);
+    setTimeout(function () { $('#form-toast').fadeOut(400); }, 5000);
+  }
+
+  /* ── Hero text slider ── */
+  (function () {
+    var slides  = $('#heroSlider .hero-slide');
+    var total   = slides.length;
+    var current = 0;
+    function nextSlide() {
+      slides.eq(current).removeClass('active');
+      current = (current + 1) % total;
+      slides.eq(current).addClass('active');
+      $('#heroSlider').css('transform', 'translateY(-' + (current * 2) + 'rem)');
+    }
+    setInterval(nextSlide, 3200);
+  }());
+
+});
+</script>
 </body>
 </html>
